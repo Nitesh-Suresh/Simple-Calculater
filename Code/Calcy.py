@@ -15,9 +15,6 @@
 
 # 1
 
-
-
-
 import tkinter as tk
 def button_click(number):
 
