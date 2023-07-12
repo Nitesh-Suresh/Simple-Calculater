@@ -93,22 +93,28 @@ def perform_square():
 
 
 def equal_click():
-    global curr, prev
-    curr = float(entry_input.get())
-    entry_input.delete(0, tk.END)
+    try:
+        global curr, prev
+        curr = float(entry_input.get())
+        entry_input.delete(0, tk.END)
+        print("prev:",prev)
+        print("curr", curr)
 
-    if operation == '+':
-        result = float(curr)+float(prev)
-    elif operation == '-':
-        result = float(prev)-float(curr)
-    elif operation == '*':
-        result = float(curr)*float(prev)
-    elif operation == '/':
-        result = float(prev)/float(curr)
-    elif operation == '%':
-        result = float(prev)/float(curr) * 100
-    entry_input.insert(0, result)
-    prev = result
+        if operation == '+':
+            result = float(curr)+float(prev)
+        elif operation == '-':
+            result = float(prev)-float(curr)
+        elif operation == '*':
+            result = float(curr)*float(prev)
+        elif operation == '/':
+            result = float(prev)/float(curr)
+        elif operation == '%':
+            result = float(prev)/float(curr) * 100
+        entry_input.insert(0, result)
+        prev = result
+    except Exception:
+        entry_input.delete(0, tk.END)
+        entry_input.insert(tk.END, "Error")
 
 # 9
 
@@ -333,27 +339,27 @@ button_19 = tk.Button(
 
 button_1.grid(row=1, column=0, padx=2, pady=2)
 button_2.grid(row=1, column=1, padx=2, pady=2, ipadx=wi)
-button_3.grid(row=1, column=2, padx=2, pady=2, ipadx=wi)
-button_4.grid(row=1, column=3, padx=2, pady=2, ipadx=wi)
+button_3.grid(row=1, column=2, padx=2, pady=2, ipadx=9)
+button_4.grid(row=1, column=3, padx=2, pady=2, ipadx=12)
 
 button_5.grid(row=2, column=0, padx=2, pady=2, ipadx=wi)
 button_6.grid(row=2, column=1, padx=2, pady=2, ipadx=wi)
 button_7.grid(row=2, column=2, padx=2, pady=2, ipadx=wi)
-button_8.grid(row=2, column=3, padx=2, pady=2, ipadx=wi)
+button_8.grid(row=2, column=3, padx=2, pady=2, ipadx=9)
 
 button_9.grid(row=3, column=0, padx=2, pady=2, ipadx=wi)
 button_10.grid(row=3, column=1, padx=2, pady=2, ipadx=wi)
 button_11.grid(row=3, column=2, padx=2, pady=2, ipadx=wi)
-button_12.grid(row=3, column=3, padx=2, pady=2, ipadx=wi)
+button_12.grid(row=3, column=3, padx=2, pady=2, ipadx=12)
 
 button_13.grid(row=4, column=0, padx=2, pady=2, ipadx=wi)
 button_14.grid(row=4, column=1, padx=2, pady=2, ipadx=wi)
 button_15.grid(row=4, column=2, padx=2, pady=2, ipadx=wi)
-button_16.grid(row=4, column=3, padx=2, pady=2, ipadx=wi)
+button_16.grid(row=4, column=3, padx=2, pady=2, ipadx=9)
 
 button_17.grid(row=5, columnspan=2, padx=2, pady=2, ipadx=50)
-button_18.grid(row=5, column=2, padx=2, pady=2, ipadx=wi)
-button_19.grid(row=5, column=3, padx=2, pady=2, ipadx=wi)
+button_18.grid(row=5, column=2, padx=2, pady=2, ipadx=13.5)
+button_19.grid(row=5, column=3, padx=2, pady=2, ipadx=9)
 
 
 tk.mainloop()
