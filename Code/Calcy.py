@@ -334,6 +334,14 @@ button_19 = tk.Button(
     command=equal_click
 )
 
+'''history_listbox = tk.Listbox(
+    master=root_window,
+    font=('Arial', 20, 'normal'),
+    padx=x,
+    pady=y,
+    width=30
+)'''
+
 button_1.grid(row=1, column=0, padx=2, pady=2)
 button_2.grid(row=1, column=1, padx=2, pady=2, ipadx=wi)
 button_3.grid(row=1, column=2, padx=2, pady=2, ipadx=9)
