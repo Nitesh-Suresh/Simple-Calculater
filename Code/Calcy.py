@@ -77,7 +77,7 @@ def perform_per():
 # 7
 
 
-def perform_square():
+def perform_square(): 
     global prev, operation, curr
     prev = float(entry_input.get())
     curr = prev
