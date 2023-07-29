@@ -1,6 +1,7 @@
 import tkinter as tk
 
 calculation = ""
+history_list=[]
 
 def add_to_calculation(symbol):
     global calculation
@@ -11,20 +12,37 @@ def add_to_calculation(symbol):
 def evaluate_calculation():
     global calculation
     try:
-        calculation = str(eval(calculation))
+        result = str(eval(calculation))
         text_result.delete(1.0,"end")
-        text_result.insert(1.0,calculation)
-    except:
+        text_result.insert(1.0,result)
+        history_list.append(f"{calculation} = {result}")
+        calculation = "" 
+
+    except Exception as e:
         clear_field()
         text_result.insert(1.0,"Error")
+        calculation = ""
 
 def clear_field():
     global calculation
     calculation = ""
     text_result.delete(1.0,"end")
 
-def display_memory():
-    pass
+def display_history():
+    history_window = tk.Toplevel(root)
+    history_window.title("Calculation History")
+    history_window.geometry("300x200")
+
+    history_text = tk.Text(
+        history_window,
+        height=10,
+        width= 30,
+        font=("Arial", 12)
+    )
+
+    for history_item in history_list:
+        history_text.insert("end", history_item + "\n")
+    history_text.pack()
 
 root = tk.Tk()
 root.title("Simple Calculator")
@@ -199,7 +217,7 @@ btn_clear.grid(row = 6, column=1,columnspan=2)
 btn_memory = tk.Button(
     root,
     text = "M",
-    command= display_memory,
+    command= display_history,
     width= 5,
     font= ("Arial", 14)
 )
