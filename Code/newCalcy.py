@@ -46,7 +46,7 @@ def display_history():
 
 root = tk.Tk()
 root.title("Simple Calculator")
-root.geometry("400x380")
+root.geometry("310x360")
 root.configure(bg="#f0f0f0")
 
 #text field
@@ -82,6 +82,13 @@ buttons =[
         root,
         text = "2",
         command= lambda:add_to_calculation(2),
+        width= 5,
+    ),
+
+    tk.Button(
+        root,
+        text = "3",
+        command= lambda:add_to_calculation(3),
         width= 5,
     ),
 
@@ -180,7 +187,7 @@ buttons =[
         root,
         text = "C",
         command= clear_field,
-        width= 11,
+        width= 5,
     ),
 
     tk.Button(
@@ -204,7 +211,7 @@ button_positions = [
     (3, 1), (3, 2), (3, 3), (3, 4),
     (4, 1), (4, 2), (4, 3), (4, 4),
     (5, 1), (5, 2), (5, 3), (5, 4),
-    (6, 1), (6, 3), (6, 4),
+    (6, 1), (6, 2), (6, 3), (6, 4),
 ]
 
 for i, button in enumerate(buttons):
